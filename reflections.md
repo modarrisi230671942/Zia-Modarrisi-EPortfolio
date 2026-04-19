@@ -15,7 +15,7 @@ title: Reflections
   <ul>
     <li><strong>Situation:</strong> The digital portfolio assessment required building web content without relying on traditional visual editors, specifically mandating the use of Markdown format.</li>
     <li><strong>Task:</strong> I needed to design and format a structured, highly professional Curriculum Vitae and portfolio interface using GitHub Flavored Markdown (GFM) syntax.</li>
-    <li><strong>Action:</strong> I studied and applied a variety of Markdown syntax elements—including headers, nested lists, bold formatting, and tables—to effectively separate and organize my professional information, ensuring the source code remained clean and readable.</li>
+    <li><strong>Action:</strong> I studied and applied a variety of Markdown syntax elements-including headers, nested lists, bold formatting, and tables to effectively separate and organize my professional information, ensuring the source code remained clean and readable.</li>
     <li><strong>Result:</strong> I successfully authored clean documentation that renders beautifully on the web. This process significantly enhanced my technical writing skills and familiarized me with standard documentation practices used by developers worldwide.</li>
   </ul>
 </div>
