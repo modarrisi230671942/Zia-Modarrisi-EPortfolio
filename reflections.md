@@ -11,7 +11,7 @@ title: Reflections
 </nav>
 
 <div class="glass-card">
-  <h2>Reflection on Coding in Markdown (STAR Method)</h2>
+  <h2>Reflection on Coding in Markdown</h2>
   <ul>
     <li><strong>Situation:</strong> The digital portfolio assessment required building web content without relying on traditional visual editors, specifically mandating the use of Markdown format.</li>
     <li><strong>Task:</strong> I needed to design and format a structured, highly professional Curriculum Vitae and portfolio interface using GitHub Flavored Markdown (GFM) syntax.</li>
@@ -21,7 +21,7 @@ title: Reflections
 </div>
 
 <div class="glass-card">
-  <h2>Reflection on the Use of GitHub Pages (STAR Method)</h2>
+  <h2>Reflection on the Use of GitHub Pages</h2>
   <ul>
     <li><strong>Situation:</strong> Once the portfolio's content was generated, it needed to be published online to be reviewed by lecturers and used practically for job applications.</li>
     <li><strong>Task:</strong> I had to host my Markdown files on a live, publicly accessible website using GitHub Pages, ensuring the digital portfolio visually stood out.</li>
