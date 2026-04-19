@@ -1,0 +1,154 @@
+---
+---
+
+/* Custom Premium Overrides */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  line-height: 1.6;
+}
+
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  border-bottom: 2px solid #30363d;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  color: #58a6ff;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #8b949e;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #f0f6fc;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+h2 {
+  border-bottom: 1px solid #21262d;
+  padding-bottom: 0.5rem;
+  color: #79c0ff;
+}
+
+a {
+  color: #58a6ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #79c0ff;
+  text-decoration: underline;
+}
+
+/* Glassmorphism Cards for content */
+.glass-card {
+  background: rgba(22, 27, 34, 0.6);
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+th, td {
+  padding: 1rem;
+  border: 1px solid #30363d;
+  text-align: left;
+}
+
+th {
+  background-color: #161b22;
+  color: #f0f6fc;
+}
+
+tr:nth-child(even) {
+  background-color: #0d1117;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+nav a {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #30363d;
+  border-radius: 20px;
+  background: #161b22;
+  color: #c9d1d9;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: #58a6ff;
+  color: #0d1117;
+  border-color: #58a6ff;
+  text-decoration: none;
+}
+
+/* Video Placeholder */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #161b22;
+  border: 2px dashed #30363d;
+  border-radius: 12px;
+  height: 400px;
+  margin: 2rem 0;
+  color: #8b949e;
+  flex-direction: column;
+}
+
+/* Specific component tweaks */
+blockquote {
+  border-left: 4px solid #58a6ff;
+  padding-left: 1rem;
+  color: #8b949e;
+  margin-left: 0;
+  background: rgba(88, 166, 255, 0.05);
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+}
+
+strong {
+  color: #f0f6fc;
+}
