@@ -13,7 +13,7 @@ title: Curriculum Vitae
 <div class="glass-card">
   <h2>AHMAD ZIA HASAN MODARRISI</h2>
   <p><strong>SOFTWARE DEVELOPER</strong></p>
-  <p>📞 +27 68 200 8743 | ✉️ reztuhh@gmail.com | 🏠 18 Hercules Way, Grassy Park</p>
+  <p>📞 +27 68 200 8743 | ✉️ reztuhh@gmail.com | 🏠 Grassy Park</p>
 </div>
 
 <div class="glass-card">
