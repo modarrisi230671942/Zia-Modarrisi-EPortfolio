@@ -23,7 +23,7 @@ title: Mock Interview
 </div>
 
 <div class="glass-card">
-  <h2>Reflection on Mock Interview Experience (STAR Method)</h2>
+  <h2>Reflection on Mock Interview Experience</h2>
   <ul>
     <li><strong>Situation:</strong> As part of the work readiness training for the ICT curriculum, I needed to record a mock interview video to simulate the expectations and pressures of a real technical job interview.</li>
     <li><strong>Task:</strong> I had to concisely answer typical interview questions, highlight my technical and soft skills, and present myself professionally within a strict 2-minute time limit.</li>
