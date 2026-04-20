@@ -13,7 +13,7 @@ title: Curriculum Vitae
 <div class="glass-card">
   <h2>AHMAD ZIA HASAN MODARRISI</h2>
   <p><strong>SOFTWARE DEVELOPER</strong></p>
-  <p>📞 +27 68 200 8743 | ✉️ reztuhh@gmail.com | 🏠 Grassy Park</p>
+  <p>📞 +27 68 200 8743 | ✉️ reztuhh@gmail.com | 🏠 Cape Town, South Africa</p>
 </div>
 
 <div class="glass-card">
@@ -60,8 +60,8 @@ title: Curriculum Vitae
 <div class="glass-card">
   <h2>Technical Skills</h2>
   <ul>
-    <li><strong>Programming Languages:</strong> Java, JavaScript, Python, SQL, HTML5, Linux</li>
-    <li><strong>Tools & Environments:</strong> Git, GitHub, IntelliJ IDEA, Visual Studio Code, Microsoft SQL Server</li>
+    <li><strong>Programming Languages:</strong> Java, JavaScript, Python, SQL, HTML5, Linux, CSS</li>
+    <li><strong>Tools & Environments:</strong> Git, GitHub, IntelliJ IDEA, Visual Studio Code, Microsoft SQL Server, FIGMA</li>
     <li><strong>Operating Systems:</strong> Windows, Linux</li>
     <li><strong>Technical Support & Hardware:</strong> 
       <ul>
