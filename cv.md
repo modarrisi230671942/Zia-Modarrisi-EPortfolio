@@ -83,6 +83,6 @@ title: Curriculum Vitae
 
 <div class="glass-card">
   <h2>References</h2>
-  <p><strong>Imaad</strong></p>
+  <p><strong>Imaad - Legacy E&H</strong></p>
   <p>Phone: +27 76 083 4258</p>
 </div>
