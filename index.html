@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Zia Hasan Modarrisi - Digital Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-fontawesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient background glows -->
+    <div class="glow-bg glow-primary"></div>
+    <div class="glow-bg glow-secondary"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-symbol">&lt;</span>
+                <span class="logo-text">Ahmad.Dev</span>
+                <span class="logo-symbol">/&gt;</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#about" class="nav-link active" data-tab="about"><i class="fa-solid fa-user"></i> About</a>
+                <a href="#cv" class="nav-link" data-tab="cv"><i class="fa-solid fa-file-invoice"></i> CV</a>
+                <a href="#interview" class="nav-link" data-tab="interview"><i class="fa-solid fa-video"></i> Interview Video</a>
+                <a href="#reflections" class="nav-link" data-tab="reflections"><i class="fa-solid fa-brain"></i> STAR Reflections</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark/light mode">
+                    <i class="fa-solid fa-sun icon-sun"></i>
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-info">
+                    <span class="badge hero-badge"><i class="fa-solid fa-laptop-code"></i> CPUT PRP370S Student Portfolio</span>
+                    <h1 class="hero-title">
+                        Ahmad Zia Hasan <span class="highlight-text">Modarrisi</span>
+                    </h1>
+                    <p class="hero-subtitle">Application Developer & Team Leader</p>
+                    <p class="hero-description">
+                        Building robust system architectures and clean workflows. Grounded in event leadership and trained in software development at Cape Peninsula University of Technology.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#cv" class="btn btn-primary" onclick="switchTab('cv')">
+                            <i class="fa-solid fa-arrow-right"></i> Explore CV
+                        </a>
+                        <a href="#interview" class="btn btn-secondary" onclick="switchTab('interview')">
+                            <i class="fa-solid fa-play"></i> Watch Mock Interview
+                        </a>
+                    </div>
+                    <div class="hero-contact-info">
+                        <div class="hero-contact-text">
+                            <span class="contact-item"><i class="fa-solid fa-envelope"></i> reztuhh@gmail.com</span>
+                            <span class="contact-sep">|</span>
+                            <span class="contact-item"><i class="fa-solid fa-phone"></i> +27 68 200 8743</span>
+                            <span class="contact-sep">|</span>
+                            <span class="contact-item"><i class="fa-solid fa-location-dot"></i> Cape Town, South Africa</span>
+                        </div>
+                        <div class="hero-github-container">
+                            <a href="https://github.com/modarrisi230671942" target="_blank" class="github-click-btn" title="Visit my GitHub Account">
+                                <i class="fa-brands fa-github"></i> <span>modarrisi230671942</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="visual-card">
+                        <div class="card-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="card-code">
+                            <span class="code-comment">// Building professional potential</span><br>
+                            <span class="code-keyword">const</span> developer = {<br>
+                            &nbsp;&nbsp;name: <span class="code-string">"Ahmad Zia Hasan Modarrisi"</span>,<br>
+                            &nbsp;&nbsp;education: <span class="code-string">"CPUT ICT (App Development)"</span>,<br>
+                            &nbsp;&nbsp;skills: [<span class="code-string">"Java"</span>, <span class="code-string">"Python"</span>, <span class="code-string">"SQL"</span>, <span class="code-string">"JS"</span>],<br>
+                            &nbsp;&nbsp;leadership: <span class="code-keyword">true</span>,<br>
+                            &nbsp;&nbsp;workReady: <span class="code-keyword">true</span><br>
+                            };<br><br>
+                            <span class="code-keyword">function</span> getStatus() {<br>
+                            &nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-string">"Internship Ready 🚀"</span>;<br>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Sections (Controlled by JS tab routing) -->
+        <div class="container container-content">
+
+            <!-- TAB 1: ABOUT & GITHUB STUDENT -->
+            <section id="about-tab" class="tab-pane active">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">Bridging academic principles and industrial application</p>
+                </div>
+
+                <div class="about-grid about-grid--single">
+                    <div class="card about-main-card">
+                        <div class="about-profile-header">
+                            <div class="avatar-container">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Ahmad Zia Hasan Modarrisi</h3>
+                                <p class="card-tag">ICT Student | CPUT Application Development</p>
+                            </div>
+                        </div>
+                        <p class="about-text">
+                            I am currently pursuing a Diploma in Information and Communication Technology, specializing in Application Development at the Cape Peninsula University of Technology. My passion lies in constructing efficient, scaleable backends and clean user interfaces. 
+                        </p>
+                        <p class="about-text">
+                            What makes my profile unique is my extensive professional background in event leadership. Serving as a Floor and Team Lead, I have mastered project coordination, task delegation, team mentorship, and critical problem-solving under extreme operational constraints. I am eager to apply these valuable leadership and communication skills directly to the modern software engineering lifecycle.
+                        </p>
+                        <div class="about-goals">
+                            <h4 class="small-title"><i class="fa-solid fa-bullseye"></i> Academic & Career Goals</h4>
+                            <ul class="styled-list">
+                                <li>Complete internship requirements in the software engineering sector to deliver high-quality code.</li>
+                                <li>Master advanced systems architecture, Cloud Computing, and DevOps pipelines.</li>
+                                <li>Contribute actively to collaborative, cross-functional engineering teams.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: INTERACTIVE CV -->
+            <section id="cv-tab" class="tab-pane">
+                <div class="section-header">
+                    <h2 class="section-title">Curriculum Vitae</h2>
+                    <p class="section-subtitle">Fully coded structural history and technical skill matrix</p>
+                </div>
+
+                <div class="cv-actions">
+                    <a href="./CV.pdf" download class="btn btn-primary btn-cv-download">
+                        <i class="fa-solid fa-file-pdf"></i> Download PDF Version
+                    </a>
+                    <a href="./CV.md" target="_blank" class="btn btn-secondary btn-cv-markdown">
+                        <i class="fa-brands fa-markdown"></i> View Raw Markdown CV
+                    </a>
+                </div>
+
+                <div class="cv-layout">
+                    <!-- Sidebar: Info & Skills -->
+                    <div class="cv-sidebar">
+                        <div class="card cv-skills-card">
+                            <h3 class="card-title"><i class="fa-solid fa-gear"></i> Technical Expertise</h3>
+                            <p class="skill-filter-hint"><i class="fa-solid fa-hand-pointer"></i> Click a skill to highlight where it was used</p>
+
+                            <div class="skill-group">
+                                <h4>Programming Languages</h4>
+                                <div class="skill-pills">
+                                    <span class="skill-pill" data-skill="java">Java</span>
+                                    <span class="skill-pill" data-skill="javascript">JavaScript</span>
+                                    <span class="skill-pill" data-skill="python">Python</span>
+                                    <span class="skill-pill" data-skill="sql">SQL</span>
+                                    <span class="skill-pill" data-skill="web">HTML5 & CSS3</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-group">
+                                <h4>Tools & Dev Environments</h4>
+                                <div class="skill-pills">
+                                    <span class="skill-pill" data-skill="git">Git & GitHub</span>
+                                    <span class="skill-pill" data-skill="intellij">IntelliJ IDEA</span>
+                                    <span class="skill-pill" data-skill="vscode">VS Code</span>
+                                    <span class="skill-pill" data-skill="sql">MS SQL Server</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-group">
+                                <h4>Infrastructure & Support</h4>
+                                <div class="skill-pills">
+                                    <span class="skill-pill" data-skill="hardware">PC Assembly</span>
+                                    <span class="skill-pill" data-skill="hardware">OS configuration (Win/Linux)</span>
+                                    <span class="skill-pill" data-skill="networking">Network Diagnostics</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card cv-core-skills-card">
+                            <h3 class="card-title"><i class="fa-solid fa-brain"></i> Core Competencies</h3>
+                            <div class="competency-item">
+                                <div class="competency-label">
+                                    <span>Critical Thinking</span>
+                                    <span class="competency-pct">90%</span>
+                                </div>
+                                <div class="progress-bar"><div class="progress" data-width="90%" style="width: 0%;"></div></div>
+                            </div>
+                            <div class="competency-item">
+                                <div class="competency-label">
+                                    <span>Problem Solving</span>
+                                    <span class="competency-pct">95%</span>
+                                </div>
+                                <div class="progress-bar"><div class="progress" data-width="95%" style="width: 0%;"></div></div>
+                            </div>
+                            <div class="competency-item">
+                                <div class="competency-label">
+                                    <span>Teamwork & Leadership</span>
+                                    <span class="competency-pct">95%</span>
+                                </div>
+                                <div class="progress-bar"><div class="progress" data-width="95%" style="width: 0%;"></div></div>
+                            </div>
+                            <div class="competency-item">
+                                <div class="competency-label">
+                                    <span>Communication</span>
+                                    <span class="competency-pct">90%</span>
+                                </div>
+                                <div class="progress-bar"><div class="progress" data-width="90%" style="width: 0%;"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="card cv-languages-card">
+                            <h3 class="card-title"><i class="fa-solid fa-language"></i> Languages</h3>
+                            <ul class="styled-list">
+                                <li><strong>English</strong>: Fluent / Native Speaker</li>
+                                <li><strong>Afrikaans</strong>: Working Proficiency</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Main Content: Timeline & Experience -->
+                    <div class="cv-main">
+                        <div class="card cv-experience-card">
+                            <h3 class="card-title"><i class="fa-solid fa-briefcase"></i> Professional Experience</h3>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item" data-skills="leadership communication">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <h4>Floor and Team Lead</h4>
+                                            <span class="timeline-date">2024 - 2026</span>
+                                        </div>
+                                        <p class="timeline-company">Events and Operations</p>
+                                        <p class="timeline-desc">
+                                            Coordinated operational logistics and managed ground teams in high-stress, fast-paced event scenarios.
+                                        </p>
+                                        <ul class="timeline-bullets">
+                                            <li>Coordinated complex operational workflows for large-scale events, securing safety, efficiency, and high quality.</li>
+                                            <li>Led, mentored, and supervised diverse teams, optimizing output through strategic delegation and constructive feedback.</li>
+                                            <li>Identified and resolved real-time operational bottlenecks under extreme pressure, maintaining professional service quality.</li>
+                                            <li>Upheld rigorous safety protocols and quality guidelines across multiple high-profile venues.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card cv-education-card">
+                            <h3 class="card-title"><i class="fa-solid fa-graduation-cap"></i> Education & Academic Track</h3>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item" data-skills="java javascript python sql web git intellij vscode">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <h4>Diploma in Information & Communication Technology</h4>
+                                            <span class="timeline-date">2023 - Present</span>
+                                        </div>
+                                        <p class="timeline-company">Cape Peninsula University of Technology (CPUT)</p>
+                                        <p class="timeline-desc">
+                                            Specializing in <strong>Application Development</strong>. Key courses include Object-Oriented Programming (Java/Python), Relational Database Design, System Analysis and Design, and Technical Presentations.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item" data-skills="communication leadership">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <h4>National Senior Certificate (Matric Bachelors Pass)</h4>
+                                            <span class="timeline-date">2018 - 2022</span>
+                                        </div>
+                                        <p class="timeline-company">Al-Azhar High School</p>
+                                        <p class="timeline-desc">Passed with Bachelor admissions, showing strong aptitude in analytical and critical thinking.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card cv-references-card">
+                            <h3 class="card-title"><i class="fa-solid fa-quote-left"></i> Professional Reference</h3>
+                            <blockquote class="cv-blockquote">
+                                <p>"Ahmad has demonstrated excellent team management, crisis response, and communication skills while serving as a Floor and Team Lead."</p>
+                                <cite>
+                                    <strong>Imaad</strong><br>
+                                    Coordinator, Legacy Events & Hire<br>
+                                    📞 +27 76 083 4258
+                                </cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: MOCK INTERVIEW VIDEO -->
+            <section id="interview-tab" class="tab-pane">
+                <div class="section-header">
+                    <h2 class="section-title">Mock Interview Video</h2>
+                    <p class="section-subtitle">Evaluating communications and behavioral readiness for industry roles</p>
+                </div>
+
+                <div class="interview-grid">
+                    <div class="card video-card">
+                        <div class="video-container">
+                            <video id="portfolio-video" controls preload="metadata">
+                                <source src="Interview.mp4" type="video/mp4">
+                                Your browser does not support the video tag. Please view the file locally.
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <span class="badge"><i class="fa-solid fa-circle-check text-success"></i> Active Media File</span>
+                            <h3>Mock Interview Simulation Recording</h3>
+                            <p class="video-meta">Subject: PRP370S Work Readiness Evaluation | Format: MP4 | File: Interview.mp4</p>
+                        </div>
+                    </div>
+
+                    <div class="card interview-insights-card">
+                        <h3 class="card-title"><i class="fa-solid fa-lightbulb"></i> Mock Interview Insights</h3>
+                        <p class="card-tag">Self-Evaluation & Presentation Strategy</p>
+                        
+                        <div class="insights-list">
+                            <div class="insight-item">
+                                <div class="insight-num">01</div>
+                                <div class="insight-content">
+                                    <h4>Bridging Roles</h4>
+                                    <p>Articulated how floor leadership translates to handling software team conflicts, managing project deadlines, and resolving software system crashes.</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <div class="insight-num">02</div>
+                                <div class="insight-content">
+                                    <h4>Communication Framework</h4>
+                                    <p>Structured behavioral answers around specific events and technical projects, using the industry-preferred STAR method for logical clarity.</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <div class="insight-num">03</div>
+                                <div class="insight-content">
+                                    <h4>Growth & Critique</h4>
+                                    <p>Analyzing my own posture and vocal pitch has given me a concrete checklist to refine before physical recruiter interviews.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="interview-academic-note">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <p>This video represents formal evidence of work readiness presentation under high academic assessment rules at CPUT.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: STAR REFLECTIONS -->
+            <section id="reflections-tab" class="tab-pane">
+                <div class="section-header">
+                    <h2 class="section-title">STAR Method Reflections</h2>
+                    <p class="section-subtitle">Structured evaluation of my learning, technical development, and pipeline building</p>
+                </div>
+
+                <div class="reflections-container">
+                    <!-- Reflection Selectors -->
+                    <div class="reflections-nav">
+                        <button class="ref-btn active" data-ref="markdown">
+                            <i class="fa-brands fa-markdown"></i> Markdown CV
+                        </button>
+                        <button class="ref-btn" data-ref="video">
+                            <i class="fa-solid fa-video"></i> Interview Video
+                        </button>
+                        <button class="ref-btn" data-ref="pages">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> GitHub Pages
+                        </button>
+                    </div>
+
+                    <!-- Reflection Contents -->
+                    <div class="reflections-content">
+                        
+                        <!-- REFLECTION 1: MARKDOWN -->
+                        <div id="ref-markdown" class="ref-pane active">
+                            <div class="ref-header">
+                                <span class="badge"><i class="fa-solid fa-code"></i> GFM Standard</span>
+                                <h3>Coded CV & Reflections using Markdown</h3>
+                            </div>
+                            
+                            <div class="star-grid">
+                                <div class="star-card situation">
+                                    <div class="star-icon">S</div>
+                                    <div class="star-text">
+                                        <h4>Situation</h4>
+                                        <p>As part of the PRP370S syllabus, I had to create a portfolio of evidence. Although familiar with typing code, I had never written extensive, professional documentation using plain-text Markdown tags, tables, and block indicators.</p>
+                                    </div>
+                                </div>
+
+                                <div class="star-card task">
+                                    <div class="star-icon">T</div>
+                                    <div class="star-text">
+                                        <h4>Task</h4>
+                                        <p>I had to convert my entire physical PDF resume into a fully parseable, clean, and semantic Markdown structure (`CV.md`) that fits standard repository layouts and renders perfectly in online git ecosystems.</p>
+                                    </div>
+                                </div>
+
+                                <div class="star-card action">
+                                    <div class="star-icon">A</div>
+                                    <div class="star-text">
+                                        <h4>Action</h4>
+                                        <p>I mastered the GitHub Flavored Markdown (GFM) standard. I incorporated structured tables to hold languages and tooling, blockquotes to highlight references, and lists to map job bullet points. I repeatedly previewed the results to adjust spacing.</p>
+                                    </div>
+                                </div>
+
+                                <div class="star-card result">
+                                    <div class="star-icon">R</div>
+                                    <div class="star-text">
+                                        <h4>Result</h4>
+                                        <p>Created a highly organized GFM structure. It serves as a readable, human-centric file inside my git environment, proving that I can construct developer documentation that adheres to the industry standards.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- REFLECTION 2: VIDEO -->
+                        <div id="ref-video" class="ref-pane">
+                            <div class="ref-header">
+                                <span class="badge"><i class="fa-solid fa-users"></i> Behavioral Assessment</span>
+                                <h3>Mock Interview Video Simulation</h3>
+                            </div>
+                            
+                            <div class="star-grid">
+                                <div class="star-card situation">
+                                    <div class="star-icon">S</div>
+                                    <div class="star-text">
+                                        <h4>Situation</h4>
+                                        <p>Transitioning into the ICT industry requires clear communication, composure under pressure, and the capacity to verbally articulate technical knowledge during aggressive recruiting pipelines.</p>
+                                    </div>
+                                </div>
+
+                                <div class="star-card task">
+                                    <div class="star-icon">T</div>
+                                    <div class="star-text">
+                                        <h4>Task</h4>
+                                        <p>I needed to perform, capture, and self-review a professional mock interview video (`Interview.mp4`) that successfully communicates my capabilities and maps my operational team-leadership experience directly into software team roles.</p>
+                                    </div>
+                                </div>
+
+                                <div class="star-card action">
+                                    <div class="star-icon">A</div>
+                                    <div class="star-text">
+                                        <h4>Action</h4>
+                                        <p>I prepared technical frameworks and structured answers to key junior questions. I set up a dedicated recording area with good lighting, adjusted webcam angles, and recorded the interview. I paid close attention to speech velocity and technical jargon.</p>
+                                    </div>
+                                </div>
+
+                                <div class="star-card result">
+                                    <div class="star-icon">R</div>
+                                    <div class="star-text">
+                                        <h4>Result</h4>
+                                        <p>Constructed a solid MP4 assessment file (`Interview.mp4`). This self-review highlighted key elements of my physical delivery to refine, while showing how floor operations experience supports analytical software development environments.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- REFLECTION 3: PAGES -->
+                        <div id="ref-pages" class="ref-pane">
+                            <div class="ref-header">
+                                <span class="badge"><i class="fa-solid fa-server"></i> Static Cloud Deployment</span>
+                                <h3>Deployment on GitHub Pages</h3>
+                            </div>
+                            
+                            <div class="star-grid">
+                                <div class="star-card situation">
+                                    <div class="star-icon">S</div>
+                                    <div class="star-text">
+                                        <h4>Situation</h4>
+                                        <p>Digital portfolios must be instantly accessible to academic assessors and potential employers. Hosting projects on local hard drives or simple static repositories drastically restricts visibility and engagement.</p>
+                                    </div>
+                                </div>
+
+                                <div class="star-card task">
+                                    <div class="star-icon">T</div>
+                                    <div class="star-text">
+                                        <h4>Task</h4>
+                                        <p>Deploy the digital portfolio to the live web using GitHub Pages, transforming a static file repository into an interactive, lightning-fast static webpage.</p>
+                                    </div>
+                                </div>
+
+                                <div class="star-card action">
+                                    <div class="star-icon">A</div>
+                                    <div class="star-text">
+                                        <h4>Action</h4>
+                                        <p>Designed a fully responsive CSS web client, structuring files cleanly. I pushed files to GitHub, set up the Pages continuous deployment pipeline under repository settings to target the `main` branch, and fixed relative asset paths for video/PDF references.</p>
+                                    </div>
+                                </div>
+
+                                <div class="star-card result">
+                                    <div class="star-icon">R</div>
+                                    <div class="star-text">
+                                        <h4>Result</h4>
+                                        <p>The portfolio is live. I gained experience in basic Git pipelines and cloud hosting. By deploying the files, my academic submission is perfectly public and immediately accessible to employers worldwide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Ahmad Zia Hasan Modarrisi. All rights reserved.</p>
+            <p class="footer-academic">CPUT ICT Application Development | PRP370S / PRP371S / PRP372S Portfolio Assessment</p>
+            <div class="footer-links">
+                <a href="https://github.com/modarrisi230671942" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="mailto:reztuhh@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+                <a href="./CV.md" target="_blank"><i class="fa-brands fa-markdown"></i> CV.md</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Back-To-Top Scroll Ring -->
+    <button id="scroll-top-btn" aria-label="Back to top" title="Back to top">
+        <svg class="scroll-ring" viewBox="0 0 36 36">
+            <circle class="ring-bg" cx="18" cy="18" r="15.9155"/>
+            <circle class="ring-fill" id="ring-fill" cx="18" cy="18" r="15.9155"
+                stroke-dasharray="0 100" stroke-dashoffset="25"/>
+        </svg>
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
