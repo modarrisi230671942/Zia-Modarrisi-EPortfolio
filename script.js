@@ -33,19 +33,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll(".nav-link");
     const tabPanes = document.querySelectorAll(".tab-pane");
 
-    function switchTab(tabId) {
+    const semBtns = document.querySelectorAll("[data-sem-go]");
+    const navGroups = document.querySelectorAll(".nav-links[data-semester]");
+    const headerEl = document.getElementById("site-header");
+
+    // Keep a CSS variable in sync with the real (variable-height) header
+    function syncHeaderHeight() {
+        document.documentElement.style.setProperty("--header-h", headerEl.offsetHeight + "px");
+    }
+    syncHeaderHeight();
+    window.addEventListener("resize", syncHeaderHeight);
+    if (window.ResizeObserver) new ResizeObserver(syncHeaderHeight).observe(headerEl);
+
+    function setSemester(sem) {
+        semBtns.forEach(b => b.classList.toggle("active", b.dataset.semGo === sem));
+        navGroups.forEach(g => { g.hidden = g.dataset.semester !== sem; });
+        syncHeaderHeight();
+    }
+
+    function scrollToContent() {
+        const target = document.querySelector(".container-content");
+        const top = target.getBoundingClientRect().top + window.scrollY - headerEl.offsetHeight - 16;
+        window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+    }
+
+    function switchTab(tabId, opts) {
+        const scroll = !opts || opts.scroll !== false;
         tabPanes.forEach(pane => pane.classList.remove("active"));
         navLinks.forEach(link => link.classList.remove("active"));
 
         const targetPane = document.getElementById(`${tabId}-tab`);
-        if (targetPane) targetPane.classList.add("active");
+        if (targetPane) {
+            targetPane.classList.add("active");
+            setSemester(targetPane.dataset.semester || "1");
+        }
 
         const targetLink = document.querySelector(`.nav-link[data-tab="${tabId}"]`);
-        if (targetLink) targetLink.classList.add("active");
-
-        if (window.scrollY > 300) {
-            window.scrollTo({ top: 250, behavior: "smooth" });
+        if (targetLink) {
+            targetLink.classList.add("active");
+            // keep the active tab visible in the scrollable sub-navigation on small screens
+            targetLink.scrollIntoView({ block: "nearest", inline: "center" });
         }
+
+        if (scroll) scrollToContent();
 
         // Feature 3: Fire progress bar animation every time CV tab opens
         if (tabId === "cv") {
@@ -65,13 +95,64 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const initialHash = window.location.hash.substring(1);
-    const validTabs = ["about", "cv", "interview", "reflections"];
-    if (initialHash && validTabs.includes(initialHash)) {
-        switchTab(initialHash);
-    }
+    // Logo goes home (Semester 1, About)
+    document.querySelectorAll("[data-tab-link]").forEach(el => {
+        el.addEventListener("click", (e) => {
+            e.preventDefault();
+            switchTab(el.dataset.tabLink);
+            history.pushState(null, null, `#${el.dataset.tabLink}`);
+        });
+    });
+
 
     window.switchTab = switchTab;
+
+    // Semester buttons (top bar and the two big cards): jump to the first tab of that semester
+    semBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const first = btn.dataset.semGo === "2" ? "charter" : "about";
+            switchTab(first);
+            history.pushState(null, null, `#${first}`);
+        });
+    });
+
+    // Breadcrumb at the top and Previous / Next at the bottom of every section
+    const sectionOrder = Array.from(document.querySelectorAll("#nav-s1 .nav-link, #nav-s2 .nav-link")).map(a => ({
+        id: a.dataset.tab,
+        title: a.textContent.trim(),
+        sem: a.closest(".nav-links").dataset.semester
+    }));
+    sectionOrder.forEach((sec, i) => {
+        const pane = document.getElementById(`${sec.id}-tab`);
+        if (!pane) return;
+        const inSem = sectionOrder.filter(s => s.sem === sec.sem);
+        const pos = inSem.findIndex(s => s.id === sec.id) + 1;
+
+        const crumb = document.createElement("div");
+        crumb.className = "crumb";
+        crumb.innerHTML = `<span class="crumb-sem">Semester ${sec.sem}</span><span class="crumb-sep">/</span><strong>${sec.title}</strong><span class="crumb-step">${pos} of ${inSem.length}</span>`;
+        pane.insertBefore(crumb, pane.firstChild);
+
+        const pager = document.createElement("div");
+        pager.className = "pager";
+        const mk = (target, dir) => {
+            if (!target) return '<span></span>';
+            const cross = target.sem !== sec.sem ? `Semester ${target.sem} · ` : "";
+            const arrow = dir === "prev" ? '<i class="fa-solid fa-arrow-left"></i>' : '<i class="fa-solid fa-arrow-right"></i>';
+            return `<button type="button" class="pager-btn pager-${dir}" data-go="${target.id}">` +
+                (dir === "prev" ? arrow : "") +
+                `<span><small>${dir === "prev" ? "Previous" : "Next"}</small>${cross}${target.title}</span>` +
+                (dir === "next" ? arrow : "") + `</button>`;
+        };
+        pager.innerHTML = mk(sectionOrder[i - 1], "prev") + mk(sectionOrder[i + 1], "next");
+        pane.appendChild(pager);
+    });
+    document.querySelectorAll(".pager-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            switchTab(btn.dataset.go);
+            history.pushState(null, null, `#${btn.dataset.go}`);
+        });
+    });
 
 
     /* =========================================================
@@ -99,10 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", () => {
         if (window.scrollY > 20) {
             navbar.style.boxShadow = "var(--shadow-lg)";
-            navbar.style.height = "60px";
         } else {
             navbar.style.boxShadow = "var(--shadow-sm)";
-            navbar.style.height = "70px";
         }
     });
 
@@ -255,4 +334,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize on load
     updateScrollRing();
+
+    // Open the tab named in the URL hash (runs last so every helper above is defined)
+    const initialHash = window.location.hash.substring(1);
+    const validTabs = Array.from(tabPanes).map(p => p.id.replace(/-tab$/, ""));
+    if (initialHash && validTabs.includes(initialHash)) {
+        switchTab(initialHash, { scroll: false });
+    }
 });

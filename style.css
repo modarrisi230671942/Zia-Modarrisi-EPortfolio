@@ -1337,3 +1337,272 @@ a {
     stroke-linecap: round;
     transition: stroke-dasharray 0.1s linear;
 }
+
+
+/* =============================================
+   SEMESTER SWITCH & SEMESTER 2 (AGILE) SECTIONS
+   ============================================= */
+.nav-links[hidden] { display: none; }
+.nav-links--s2 { gap: 0.4rem; }
+.nav-links--s2 .nav-link { padding: 0.5rem 0.7rem; font-size: 0.88rem; }
+
+.nav-actions { gap: 0.9rem; }
+.semester-switch {
+    display: inline-flex;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--bg-surface);
+}
+.sem-btn {
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.sem-btn:hover { color: var(--text-primary); }
+.sem-btn.active {
+    color: #fff;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.agile-def-card { margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+.agile-def-card p { color: var(--text-secondary); line-height: 1.7; }
+
+.block-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.block-title i { color: var(--color-secondary); }
+
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr));
+    gap: 1.5rem;
+    align-items: start;
+}
+.evidence-figure {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 0.8rem;
+}
+.evidence-figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+.evidence-figure figcaption {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.7rem;
+    text-align: center;
+}
+.evidence-placeholder {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    border: 2px dashed #F59E0B;
+    border-radius: 14px;
+    padding: 1.2rem;
+    color: var(--text-secondary);
+}
+.evidence-placeholder > i { color: #F59E0B; font-size: 1.5rem; margin-top: 0.2rem; }
+.evidence-placeholder p { font-size: 0.88rem; margin-top: 0.3rem; }
+.evidence-placeholder code { color: var(--color-secondary); }
+
+.reflection-block { margin-top: 0; }
+
+@media (max-width: 1100px) {
+    .nav-links--s2 .nav-link i { display: none; }
+}
+@media (max-width: 768px) {
+    .nav-actions { width: 100%; justify-content: center; }
+    .nav-links--s2 .nav-link i { display: inline-block; }
+}
+
+/* Layout fixes: stop decorative glows and the hero code card forcing sideways scroll */
+html, body { overflow-x: hidden; }
+.hero-grid > * { min-width: 0; }
+.card-code { overflow-x: auto; }
+.hero-ctas { flex-wrap: wrap; }
+.evidence-placeholder { grid-column: 1 / -1; }
+.charter-download { align-items: flex-start; justify-content: center; }
+
+/* =============================================
+   NAVIGATION REDESIGN
+   Row 1: logo + big semester switch + theme
+   Row 2: section tabs for the chosen semester
+   Also: semester picker cards, breadcrumb, previous/next
+   ============================================= */
+.navbar { height: auto; padding: 0; }
+.nav-container { height: 66px; flex-direction: row; gap: 1rem; }
+
+.semester-switch {
+    padding: 4px;
+    gap: 4px;
+    background: var(--bg-surface-solid);
+    border-color: var(--border-color-active);
+}
+.sem-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.15;
+    padding: 0.45rem 1.4rem;
+    border-radius: 999px;
+}
+.sem-btn-num { font-size: 0.95rem; font-weight: 700; }
+.sem-btn-sub { font-size: 0.7rem; font-weight: 500; opacity: 0.8; }
+
+.subnav {
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-nav);
+}
+.subnav-inner {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+}
+.subnav-inner::-webkit-scrollbar { display: none; }
+.subnav .nav-links,
+.subnav .nav-links--s2 { gap: 0.4rem; flex-wrap: nowrap; width: auto; justify-content: flex-start; align-items: center; }
+.subnav .nav-links[hidden] { display: none; }
+.subnav .nav-links::before {
+    content: attr(data-label);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-secondary);
+    border: 1px solid var(--border-color-active);
+    border-radius: 6px;
+    padding: 0.35rem 0.55rem;
+    margin-right: 0.6rem;
+    white-space: nowrap;
+}
+.subnav .nav-link,
+.nav-links--s2 .nav-link { padding: 0.5rem 0.9rem; font-size: 0.9rem; flex: none; }
+.nav-links--s2 .nav-link i { display: inline-block; }
+
+.hero-section { padding-top: calc(var(--header-h, 130px) + 3rem); padding-bottom: 3rem; }
+.hero-contact-info { margin-top: 0.5rem; }
+
+/* Semester picker */
+.semester-picker { padding: 1rem 0 3rem; }
+.picker-title { font-family: 'Outfit', sans-serif; font-size: 1.8rem; text-align: center; }
+.picker-sub { text-align: center; color: var(--text-secondary); margin: 0.4rem 0 1.8rem; }
+.sem-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+.sem-card {
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1.6rem;
+    border-radius: 18px;
+    background: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.sem-card:hover { transform: translateY(-3px); border-color: var(--border-color-active); box-shadow: 0 10px 30px var(--shadow-lg); }
+.sem-card.active { border-color: var(--color-secondary); background: var(--color-accent-glow); }
+.sem-card-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-secondary); }
+.sem-card-title { font-family: 'Outfit', sans-serif; font-size: 1.7rem; font-weight: 700; }
+.sem-card-desc { color: var(--text-secondary); line-height: 1.6; }
+.sem-card-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sem-card-chips em {
+    font-style: normal;
+    font-size: 0.78rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+.sem-card-go { margin-top: auto; font-weight: 600; color: var(--color-secondary); display: inline-flex; gap: 0.5rem; align-items: center; }
+
+/* Breadcrumb + pager */
+.crumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+}
+.crumb-sem { color: var(--color-secondary); font-weight: 700; }
+.crumb-sep { opacity: 0.5; }
+.crumb strong { color: var(--text-primary); }
+.crumb-step {
+    margin-left: auto;
+    font-size: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.2rem 0.7rem;
+}
+.pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+.pager-btn {
+    font: inherit;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    text-align: left;
+    padding: 0.9rem 1.2rem;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    font-weight: 600;
+    max-width: 48%;
+}
+.pager-btn small { display: block; font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+.pager-btn:hover { border-color: var(--border-color-active); background: var(--color-accent-glow); }
+.pager-next { margin-left: auto; text-align: right; }
+.pager-btn i { color: var(--color-secondary); }
+
+@media (max-width: 900px) {
+    .sem-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .navbar { padding: 0; }
+    .nav-container { height: auto; flex-direction: row; flex-wrap: wrap; padding-top: 0.6rem; padding-bottom: 0.6rem; gap: 0.6rem; }
+    .logo { order: 1; flex: 1; }
+    .nav-actions { order: 2; width: auto; }
+    .semester-switch { order: 3; width: 100%; }
+    .sem-btn { flex: 1; padding: 0.45rem 0.5rem; }
+    .subnav .nav-link { font-size: 0.85rem; padding: 0.45rem 0.75rem; }
+    .hero-section { padding-top: calc(var(--header-h, 190px) + 2rem); }
+    .pager { flex-direction: column; }
+    .pager-btn { max-width: 100%; }
+    .pager-next { margin-left: 0; }
+}

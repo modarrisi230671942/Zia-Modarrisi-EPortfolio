@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-fontawesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,26 +20,46 @@
     <div class="glow-bg glow-secondary"></div>
 
     <!-- Navigation Header -->
-    <header class="navbar">
+    <header class="navbar" id="site-header">
         <div class="container nav-container">
-            <a href="#" class="logo">
+            <a href="#about" class="logo" data-tab-link="about">
                 <span class="logo-symbol">&lt;</span>
                 <span class="logo-text">Ahmad.Dev</span>
                 <span class="logo-symbol">/&gt;</span>
             </a>
-            
-            <nav class="nav-links">
-                <a href="#about" class="nav-link active" data-tab="about"><i class="fa-solid fa-user"></i> About</a>
-                <a href="#cv" class="nav-link" data-tab="cv"><i class="fa-solid fa-file-invoice"></i> CV</a>
-                <a href="#interview" class="nav-link" data-tab="interview"><i class="fa-solid fa-video"></i> Interview Video</a>
-                <a href="#reflections" class="nav-link" data-tab="reflections"><i class="fa-solid fa-brain"></i> STAR Reflections</a>
-            </nav>
+
+            <div class="semester-switch" role="group" aria-label="Choose semester">
+                <button type="button" class="sem-btn active" data-sem-go="1">
+                    <span class="sem-btn-num">Semester 1</span><span class="sem-btn-sub">Work Readiness</span>
+                </button>
+                <button type="button" class="sem-btn" data-sem-go="2">
+                    <span class="sem-btn-num">Semester 2</span><span class="sem-btn-sub">Agile Project</span>
+                </button>
+            </div>
 
             <div class="nav-actions">
                 <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark/light mode">
                     <i class="fa-solid fa-sun icon-sun"></i>
                     <i class="fa-solid fa-moon icon-moon"></i>
                 </button>
+            </div>
+        </div>
+
+        <div class="subnav">
+            <div class="container subnav-inner">
+                <nav class="nav-links" id="nav-s1" data-semester="1" data-label="Semester 1" aria-label="Semester 1 sections">
+                    <a href="#about" class="nav-link active" data-tab="about"><i class="fa-solid fa-user"></i> About</a>
+                    <a href="#cv" class="nav-link" data-tab="cv"><i class="fa-solid fa-file-invoice"></i> CV</a>
+                    <a href="#interview" class="nav-link" data-tab="interview"><i class="fa-solid fa-video"></i> Interview Video</a>
+                    <a href="#reflections" class="nav-link" data-tab="reflections"><i class="fa-solid fa-brain"></i> STAR Reflections</a>
+                </nav>
+                <nav class="nav-links nav-links--s2" id="nav-s2" data-semester="2" data-label="Semester 2" aria-label="Semester 2 sections" hidden>
+                    <a href="#charter" class="nav-link" data-tab="charter"><i class="fa-solid fa-handshake"></i> Team Charter</a>
+                    <a href="#stories" class="nav-link" data-tab="stories"><i class="fa-solid fa-list-check"></i> User Stories</a>
+                    <a href="#product-backlog" class="nav-link" data-tab="product-backlog"><i class="fa-solid fa-layer-group"></i> Product Backlog</a>
+                    <a href="#sprint-backlog" class="nav-link" data-tab="sprint-backlog"><i class="fa-solid fa-bars-progress"></i> Sprint Backlog</a>
+                    <a href="#logbook" class="nav-link" data-tab="logbook"><i class="fa-solid fa-book"></i> Logbook</a>
+                </nav>
             </div>
         </div>
     </header>
@@ -59,14 +79,6 @@
                     <p class="hero-description">
                         Building robust system architectures and clean workflows. Grounded in event leadership and trained in software development at Cape Peninsula University of Technology.
                     </p>
-                    <div class="hero-ctas">
-                        <a href="#cv" class="btn btn-primary" onclick="switchTab('cv')">
-                            <i class="fa-solid fa-arrow-right"></i> Explore CV
-                        </a>
-                        <a href="#interview" class="btn btn-secondary" onclick="switchTab('interview')">
-                            <i class="fa-solid fa-play"></i> Watch Mock Interview
-                        </a>
-                    </div>
                     <div class="hero-contact-info">
                         <div class="hero-contact-text">
                             <span class="contact-item"><i class="fa-solid fa-envelope"></i> reztuhh@gmail.com</span>
@@ -108,11 +120,35 @@
             </div>
         </section>
 
+        <!-- Semester picker: the main way to move between the two semesters -->
+        <section class="semester-picker" id="semester-picker">
+            <div class="container">
+                <h2 class="picker-title">Explore my portfolio</h2>
+                <p class="picker-sub">Choose a semester, then use the section tabs to move through it.</p>
+                <div class="sem-cards">
+                    <button type="button" class="sem-card active" data-sem-go="1">
+                        <span class="sem-card-tag">Semester 1</span>
+                        <span class="sem-card-title">Work Readiness</span>
+                        <span class="sem-card-desc">About me, my CV, the mock interview video and STAR reflections.</span>
+                        <span class="sem-card-chips"><em>About</em><em>CV</em><em>Interview</em><em>Reflections</em></span>
+                        <span class="sem-card-go">Open Semester 1 <i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <button type="button" class="sem-card" data-sem-go="2">
+                        <span class="sem-card-tag">Semester 2</span>
+                        <span class="sem-card-title">Agile Project</span>
+                        <span class="sem-card-desc">Perfume Velour Essence: team charter, user stories, backlogs and logbook, each with evidence and a reflection.</span>
+                        <span class="sem-card-chips"><em>Charter</em><em>User Stories</em><em>Product Backlog</em><em>Sprint Backlog</em><em>Logbook</em></span>
+                        <span class="sem-card-go">Open Semester 2 <i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Dynamic Content Sections (Controlled by JS tab routing) -->
         <div class="container container-content">
 
             <!-- TAB 1: ABOUT & GITHUB STUDENT -->
-            <section id="about-tab" class="tab-pane active">
+            <section id="about-tab" data-semester="1" class="tab-pane active">
                 <div class="section-header">
                     <h2 class="section-title">About Me</h2>
                     <p class="section-subtitle">Bridging academic principles and industrial application</p>
@@ -148,17 +184,17 @@
             </section>
 
             <!-- TAB 2: INTERACTIVE CV -->
-            <section id="cv-tab" class="tab-pane">
+            <section id="cv-tab" data-semester="1" class="tab-pane">
                 <div class="section-header">
                     <h2 class="section-title">Curriculum Vitae</h2>
                     <p class="section-subtitle">Fully coded structural history and technical skill matrix</p>
                 </div>
 
                 <div class="cv-actions">
-                    <a href="./CV.pdf" download class="btn btn-primary btn-cv-download">
+                    <a href="./assets/documents/CV.pdf" download class="btn btn-primary btn-cv-download">
                         <i class="fa-solid fa-file-pdf"></i> Download PDF Version
                     </a>
-                    <a href="./CV.md" target="_blank" class="btn btn-secondary btn-cv-markdown">
+                    <a href="./assets/documents/CV.md" target="_blank" class="btn btn-secondary btn-cv-markdown">
                         <i class="fa-brands fa-markdown"></i> View Raw Markdown CV
                     </a>
                 </div>
@@ -318,7 +354,7 @@
             </section>
 
             <!-- TAB 3: MOCK INTERVIEW VIDEO -->
-            <section id="interview-tab" class="tab-pane">
+            <section id="interview-tab" data-semester="1" class="tab-pane">
                 <div class="section-header">
                     <h2 class="section-title">Mock Interview Video</h2>
                     <p class="section-subtitle">Evaluating communications and behavioral readiness for industry roles</p>
@@ -328,7 +364,7 @@
                     <div class="card video-card">
                         <div class="video-container">
                             <video id="portfolio-video" controls preload="metadata">
-                                <source src="Interview.mp4" type="video/mp4">
+                                <source src="assets/video/Interview.mp4" type="video/mp4">
                                 Your browser does not support the video tag. Please view the file locally.
                             </video>
                         </div>
@@ -376,7 +412,7 @@
             </section>
 
             <!-- TAB 4: STAR REFLECTIONS -->
-            <section id="reflections-tab" class="tab-pane">
+            <section id="reflections-tab" data-semester="1" class="tab-pane">
                 <div class="section-header">
                     <h2 class="section-title">STAR Method Reflections</h2>
                     <p class="section-subtitle">Structured evaluation of my learning, technical development, and pipeline building</p>
@@ -529,6 +565,319 @@
                 </div>
             </section>
 
+
+            <!-- SEMESTER 2: AGILE TEAM CHARTER -->
+            <section id="charter-tab" class="tab-pane" data-semester="2">
+                <div class="section-header">
+                    <h2 class="section-title">Agile Team Charter</h2>
+                    <p class="section-subtitle">How our team agreed to work together on the custom perfume project</p>
+                </div>
+
+                <div class="card agile-def-card">
+                    <span class="badge"><i class="fa-solid fa-handshake"></i> Agile Practice</span>
+                    <p>An Agile team charter is a living, co-created social contract that defines a team's shared purpose, core values, working agreements, and operational boundaries to reduce friction and align daily execution.</p>
+                </div>
+
+                <h3 class="block-title"><i class="fa-solid fa-folder-open"></i> Evidence</h3>
+                <div class="evidence-grid">
+                        <figure class="evidence-figure">
+                            <img src="assets/images/team-charter-1.png" alt="Agile Team Charter, page 1: team purpose and roles" loading="lazy">
+                            <figcaption>Agile Team Charter, page 1: team purpose, vision and roles</figcaption>
+                        </figure>
+                        <figure class="evidence-figure">
+                            <img src="assets/images/team-charter-2.png" alt="Agile Team Charter, page 2: roster, value chain and principles" loading="lazy">
+                            <figcaption>Agile Team Charter, page 2: roster, value chain and team principles</figcaption>
+                        </figure>
+                        <div class="card agile-def-card charter-download">
+                            <p>The full charter also covers team values, agile principles, the communication plan, SMART goals and six sprint milestones.</p>
+                            <a href="./assets/documents/Agile-Team-Charter.docx" download class="btn btn-primary"><i class="fa-solid fa-file-word"></i> Download the full charter (.docx)</a>
+                        </div>
+                </div>
+
+                <h3 class="block-title"><i class="fa-solid fa-pen-to-square"></i> Reflection</h3>
+                <div class="reflections-content reflection-block">
+                    <div class="ref-header">
+                        <span class="badge"><i class="fa-solid fa-lightbulb"></i> STAR Method</span>
+                        <h3>Reflection: Agile Team Charter</h3>
+                    </div>
+                    <div class="star-grid">
+                            <div class="star-card situation">
+                                <div class="star-icon">S</div>
+                                <div class="star-text">
+                                    <h4>Situation</h4>
+                                    <p>Our five-person team was starting the Semester 2 project, building a system for Perfume Velour Essence, a custom perfume business. Before any design or code began we needed to agree who did what and how we would work together.</p>
+                                </div>
+                            </div>
+                            <div class="star-card task">
+                                <div class="star-icon">T</div>
+                                <div class="star-text">
+                                    <h4>Task</h4>
+                                    <p>As the team's Designer, understand where my work fitted in the project, and help agree a charter covering our purpose, roles, values, communication and milestones.</p>
+                                </div>
+                            </div>
+                            <div class="star-card action">
+                                <div class="star-icon">A</div>
+                                <div class="star-text">
+                                    <h4>Action</h4>
+                                    <p>The charter set out our objective and vision and arranged the roles as a value chain: Imaad sets the goal, Jawaad builds the schedule, I draw up how the product will look and feel, Dayyaan builds it, and Anas takes it to market. My role was Designer, focused on user experience: creating the visual layouts and making sure the product is intuitive for anyone to use. The charter gave design tasks a clear owner, while still letting Dayyaan give design feedback under our "No Silos" principle. My main milestone was Sprint 3: finalise the brand identity, logo and overall aesthetic, and complete the wireframes and UX layouts so development could start with a clear blueprint.</p>
+                                </div>
+                            </div>
+                            <div class="star-card result">
+                                <div class="star-icon">R</div>
+                                <div class="star-text">
+                                    <h4>Result</h4>
+                                    <p>The charter made it clear that my work was the input for Dayyaan's build, so late design work would block development. That pushed me to treat the Sprint 3 deliverables as dependencies for the team. My logbook also showed that team availability was hard to coordinate near the deadline, so next time I would agree rehearsal times in the communication plan early.</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </section>
+
+            <!-- SEMESTER 2: USER STORIES AND TASKS -->
+            <section id="stories-tab" class="tab-pane" data-semester="2">
+                <div class="section-header">
+                    <h2 class="section-title">User Stories and Tasks</h2>
+                    <p class="section-subtitle">Turning the custom perfume idea into customer and admin needs</p>
+                </div>
+
+                <div class="card agile-def-card">
+                    <span class="badge"><i class="fa-solid fa-list-check"></i> Requirements</span>
+                    <p>A user story is a short, simple description of a software feature written from the end-user's perspective. The breakdown is then divided into tasks.</p>
+                </div>
+
+                <h3 class="block-title"><i class="fa-solid fa-folder-open"></i> Evidence</h3>
+                <div class="evidence-grid">
+                        <figure class="evidence-figure">
+                            <img src="assets/images/user-stories-epic1.png" alt="User stories for Epic 1: Custom Scent Builder" loading="lazy">
+                            <figcaption>Epic 1: Custom Scent Builder</figcaption>
+                        </figure><figure class="evidence-figure">
+                            <img src="assets/images/user-stories-epics2-6.png" alt="User stories for Epics 2 to 6" loading="lazy">
+                            <figcaption>Epics 2 to 6: Label &amp; Bottle Personalization, Checkout &amp; Payments, Account &amp; Order Tracking, Admin &amp; Operations, Marketing &amp; Engagement</figcaption>
+                        </figure><figure class="evidence-figure">
+                            <img src="assets/images/trello-board.png" alt="Trello board showing the work broken into day cards with checklists" loading="lazy">
+                            <figcaption>Tasks: the work tracked on Trello as sprint day cards, each with a due date and checklist</figcaption>
+                        </figure>
+                </div>
+
+                <h3 class="block-title"><i class="fa-solid fa-pen-to-square"></i> Reflection</h3>
+                <div class="reflections-content reflection-block">
+                    <div class="ref-header">
+                        <span class="badge"><i class="fa-solid fa-lightbulb"></i> STAR Method</span>
+                        <h3>Reflection: User Stories and Tasks</h3>
+                    </div>
+                    <div class="star-grid">
+                            <div class="star-card situation">
+                                <div class="star-icon">S</div>
+                                <div class="star-text">
+                                    <h4>Situation</h4>
+                                    <p>We had an idea for a custom perfume platform but no clear list of what it had to do, for whom, or why. As the Designer I needed to know what users should be able to do on each screen.</p>
+                                </div>
+                            </div>
+                            <div class="star-card task">
+                                <div class="star-icon">T</div>
+                                <div class="star-text">
+                                    <h4>Task</h4>
+                                    <p>Capture the requirements as user stories in the "As a… I want… so that…" format, group them into epics, and use them to shape the layouts and the tasks the team worked on.</p>
+                                </div>
+                            </div>
+                            <div class="star-card action">
+                                <div class="star-icon">A</div>
+                                <div class="star-text">
+                                    <h4>Action</h4>
+                                    <p>As a team we wrote stories across six epics: Custom Scent Builder, Label &amp; Bottle Personalization, Checkout &amp; Payments, Account &amp; Order Tracking, Admin &amp; Operations, and Marketing &amp; Engagement. The customer stories, such as selecting scent notes and adjusting intensity, seeing a live preview of the blend, designing a custom label and seeing the price update at checkout, told me what each screen had to show. The work was tracked as tasks on our Trello board, as day cards with due dates and checklists.</p>
+                                </div>
+                            </div>
+                            <div class="star-card result">
+                                <div class="star-icon">R</div>
+                                <div class="star-text">
+                                    <h4>Result</h4>
+                                    <p>The stories gave the wireframes and prototype a clear structure. The prototype pages we built (Home, Studio, Personalize, Matcher, House, Discovery, Cart and Checkout) follow the customer-facing epics. Writing the "so that" part taught me to design around the value a feature gives the user, not just the feature.</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </section>
+
+            <!-- SEMESTER 2: PRODUCT BACKLOG -->
+            <section id="product-backlog-tab" class="tab-pane" data-semester="2">
+                <div class="section-header">
+                    <h2 class="section-title">Product Backlog</h2>
+                    <p class="section-subtitle">The prioritised list of work still needed for the product</p>
+                </div>
+
+                <div class="card agile-def-card">
+                    <span class="badge"><i class="fa-solid fa-layer-group"></i> Agile Practice</span>
+                    <p>A product backlog is a prioritized list of all required work, features, bug fixes, and improvements needed for a product.</p>
+                </div>
+
+                <h3 class="block-title"><i class="fa-solid fa-folder-open"></i> Evidence</h3>
+                <div class="evidence-grid">
+                        <figure class="evidence-figure">
+                            <img src="assets/images/taskboard.png" alt="Taskboard with Product Backlog, In Progress and Completed columns" loading="lazy">
+                            <figcaption>Taskboard: the Product Backlog column holds work not yet started</figcaption>
+                        </figure>
+                </div>
+
+                <h3 class="block-title"><i class="fa-solid fa-pen-to-square"></i> Reflection</h3>
+                <div class="reflections-content reflection-block">
+                    <div class="ref-header">
+                        <span class="badge"><i class="fa-solid fa-lightbulb"></i> STAR Method</span>
+                        <h3>Reflection: Product Backlog</h3>
+                    </div>
+                    <div class="star-grid">
+                            <div class="star-card situation">
+                                <div class="star-icon">S</div>
+                                <div class="star-text">
+                                    <h4>Situation</h4>
+                                    <p>Beyond the prototype itself, the project still had supplier, packaging, marketing and testing work that nobody was tracking in one place.</p>
+                                </div>
+                            </div>
+                            <div class="star-card task">
+                                <div class="star-icon">T</div>
+                                <div class="star-text">
+                                    <h4>Task</h4>
+                                    <p>Keep a single backlog of everything outstanding so the team always knew what could be picked up next, including the design work that still needed doing.</p>
+                                </div>
+                            </div>
+                            <div class="star-card action">
+                                <div class="star-icon">A</div>
+                                <div class="star-text">
+                                    <h4>Action</h4>
+                                    <p>We held that outstanding work in the Product Backlog column of our taskboard: conduct supplier research, finalise packaging design, develop the marketing strategy, plan user testing for the prototype, and prepare stakeholder pitch materials. For me, finalising the packaging design and planning user testing of the prototype were the design-related items. As work started, items moved out of the backlog into In Progress and then Completed.</p>
+                                </div>
+                            </div>
+                            <div class="star-card result">
+                                <div class="star-icon">R</div>
+                                <div class="star-text">
+                                    <h4>Result</h4>
+                                    <p>The backlog kept the non-coding work visible next to the prototype work. It showed me that design does not end when the layouts are done: packaging and user testing were still waiting. Our list was not ranked or estimated, so next time I would add a priority order and effort estimates to decide what comes first.</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </section>
+
+            <!-- SEMESTER 2: SPRINT BACKLOG -->
+            <section id="sprint-backlog-tab" class="tab-pane" data-semester="2">
+                <div class="section-header">
+                    <h2 class="section-title">Sprint Backlog</h2>
+                    <p class="section-subtitle">The work committed to for the current sprint and how it progressed</p>
+                </div>
+
+                <div class="card agile-def-card">
+                    <span class="badge"><i class="fa-solid fa-bars-progress"></i> Agile Practice</span>
+                    <p>A Sprint Backlog is a real-time, actionable plan created by and for developers that outlines the specific work needed to achieve the sprint goal.</p>
+                </div>
+
+                <h3 class="block-title"><i class="fa-solid fa-folder-open"></i> Evidence</h3>
+                <div class="evidence-grid">
+                        <figure class="evidence-figure">
+                            <img src="assets/images/trello-board.png" alt="Trello board for Perfume Velour Essence with sprint-labelled day cards" loading="lazy">
+                            <figcaption>Trello sprint backlog: each card is labelled with its sprint and day, has a due date and a checklist</figcaption>
+                        </figure>
+                </div>
+
+                <h3 class="block-title"><i class="fa-solid fa-pen-to-square"></i> Reflection</h3>
+                <div class="reflections-content reflection-block">
+                    <div class="ref-header">
+                        <span class="badge"><i class="fa-solid fa-lightbulb"></i> STAR Method</span>
+                        <h3>Reflection: Sprint Backlog</h3>
+                    </div>
+                    <div class="star-grid">
+                            <div class="star-card situation">
+                                <div class="star-icon">S</div>
+                                <div class="star-text">
+                                    <h4>Situation</h4>
+                                    <p>The project ran over several sprints with fixed dates, so the team had to be clear about what would be finished in each sprint and what would not.</p>
+                                </div>
+                            </div>
+                            <div class="star-card task">
+                                <div class="star-icon">T</div>
+                                <div class="star-text">
+                                    <h4>Task</h4>
+                                    <p>Plan my design work into the sprint on our Trello board, and keep it up to date so the team could see what was done, in progress and still to do.</p>
+                                </div>
+                            </div>
+                            <div class="star-card action">
+                                <div class="star-icon">A</div>
+                                <div class="star-text">
+                                    <h4>Action</h4>
+                                    <p>We broke each sprint into day cards on Trello. Each card has a sprint label, a due date and a checklist. My design work sat in Sprint 3, with day cards such as "Sprint 3 – Day 3: Design packaging concepts" and "Sprint 3 – Day 4: Finalise branding guidelines". The board has three lists: Product Backlog, In Progress and Completed, and finished Sprint 1 and Sprint 2 cards show fully ticked checklists.</p>
+                                </div>
+                            </div>
+                            <div class="star-card result">
+                                <div class="star-icon">R</div>
+                                <div class="star-text">
+                                    <h4>Result</h4>
+                                    <p>The board made each sprint's progress visible at a glance, and the checklists gave us a simple definition of done for every day card. I learned to break design work into day-sized pieces so Dayyaan could see what was coming, and that a sprint backlog is only useful if it is updated as work moves.</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </section>
+
+            <!-- SEMESTER 2: AGILE LOGBOOK -->
+            <section id="logbook-tab" class="tab-pane" data-semester="2">
+                <div class="section-header">
+                    <h2 class="section-title">Agile Logbook</h2>
+                    <p class="section-subtitle">Daily stand-up entries from the week leading up to Project Presentation 4</p>
+                </div>
+
+                <div class="card agile-def-card">
+                    <span class="badge"><i class="fa-solid fa-book"></i> Agile Practice</span>
+                    <p>An agile logbook is a tracking tool used by project managers and development teams to record daily stand-ups, sprint plans, and retrospective notes.</p>
+                </div>
+
+                <h3 class="block-title"><i class="fa-solid fa-folder-open"></i> Evidence</h3>
+                <div class="evidence-grid">
+                        <figure class="evidence-figure">
+                            <img src="assets/images/logbook-page-1.png" alt="Agile logbook page 1: taskboard, walkthrough and the 21 July 2026 entry" loading="lazy">
+                            <figcaption>Logbook page 1: taskboard, walkthrough and Tuesday 21 July 2026</figcaption>
+                        </figure>
+                        <figure class="evidence-figure">
+                            <img src="assets/images/logbook-page-2.png" alt="Agile logbook page 2: entries for 22, 23 and 24 July 2026" loading="lazy">
+                            <figcaption>Logbook page 2: Wednesday 22 July to Friday 24 July 2026</figcaption>
+                        </figure>
+                </div>
+
+                <h3 class="block-title"><i class="fa-solid fa-pen-to-square"></i> Reflection</h3>
+                <div class="reflections-content reflection-block">
+                    <div class="ref-header">
+                        <span class="badge"><i class="fa-solid fa-lightbulb"></i> STAR Method</span>
+                        <h3>Reflection: Agile Logbook</h3>
+                    </div>
+                    <div class="star-grid">
+                            <div class="star-card situation">
+                                <div class="star-icon">S</div>
+                                <div class="star-text">
+                                    <h4>Situation</h4>
+                                    <p>In the final week before Project Presentation 4, the team needed to stay aligned while the prototype was still changing.</p>
+                                </div>
+                            </div>
+                            <div class="star-card task">
+                                <div class="star-icon">T</div>
+                                <div class="star-text">
+                                    <h4>Task</h4>
+                                    <p>Record a daily stand-up entry covering what I completed, what I planned next, and what was blocking me.</p>
+                                </div>
+                            </div>
+                            <div class="star-card action">
+                                <div class="star-icon">A</div>
+                                <div class="star-text">
+                                    <h4>Action</h4>
+                                    <p>Each day I answered the three stand-up questions. On 21 July I reviewed feedback and planned the presentation structure. On 22 July I began compiling screenshots and talking points. On 23 July I finished them for every page and tested the prototype end to end. On 24 July I finalised the presentation document and led the final rehearsal.</p>
+                                </div>
+                            </div>
+                            <div class="star-card result">
+                                <div class="star-icon">R</div>
+                                <div class="star-text">
+                                    <h4>Result</h4>
+                                    <p>The impediments I logged moved from difficult rehearsal availability and formatting fixes on 21 to 23 July to "no major blockers" on 24 July. Writing them down every day made problems visible early enough to deal with them before the presentation.</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -540,7 +889,7 @@
             <div class="footer-links">
                 <a href="https://github.com/modarrisi230671942" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
                 <a href="mailto:reztuhh@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-                <a href="./CV.md" target="_blank"><i class="fa-brands fa-markdown"></i> CV.md</a>
+                <a href="./assets/documents/CV.md" target="_blank"><i class="fa-brands fa-markdown"></i> CV.md</a>
             </div>
         </div>
     </footer>

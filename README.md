@@ -9,8 +9,8 @@ It has been built using **GitHub Flavored Markdown (GFM)** for structural compli
 
 ## 🎯 Portfolio Quick Links
 * 🌐 **Live Digital Portfolio Website**: [View Live Portfolio on GitHub Pages](https://modarrisi230671942.github.io/githubrepoeportfolio/) *(Note: Deploy your repo to update this link)*
-* 📄 **Markdown CV**: [Read CV.md](./CV.md)
-* 📹 **Mock Interview Video**: [Watch Interview.mp4](./Interview.mp4)
+* 📄 **Markdown CV**: [Read CV.md](./assets/documents/CV.md)
+* 📹 **Mock Interview Video**: [Watch Interview.mp4](./assets/video/Interview.mp4)
 
 ---
 
@@ -32,7 +32,7 @@ As a Software Development student at the **Cape Peninsula University of Technolo
 ## 📝 2. Professional Curriculum Vitae (Markdown CV)
 A comprehensive curriculum vitae outlining my technical competencies, education, and team leadership experience has been fully coded in semantic markdown. 
 
-👉 **Access the Coded CV here**: [CV.md](./CV.md)
+👉 **Access the Coded CV here**: [CV.md](./assets/documents/CV.md)
 
 ### Key CV highlights include:
 * **Core Technical Stack**: OOP (Java, Python), Web Development (JavaScript, HTML5, CSS3), and Relational Databases (MS SQL Server, SQL).
@@ -43,7 +43,7 @@ A comprehensive curriculum vitae outlining my technical competencies, education,
 ## 🎥 3. Mock Interview Video Experience
 To test my communication skills and ensure absolute readiness for the professional software engineering sector, I participated in and recorded a professional mock interview.
 
-🎥 **Watch the Mock Interview video file directly here**: [Interview.mp4](./Interview.mp4)
+🎥 **Watch the Mock Interview video file directly here**: [Interview.mp4](./assets/video/Interview.mp4)
 
 ### Interview Focus Areas:
 * Translating high-stress event leadership workflows into agile software methodologies.
